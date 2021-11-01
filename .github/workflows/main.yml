@@ -26,9 +26,6 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
-      - uses: webfactory/ssh-agent@v0.4.1
-        with:
-          ssh-private-key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
 
       - run: npm ci
       - name: Build for production
