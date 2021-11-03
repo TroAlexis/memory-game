@@ -1,29 +1,25 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link>
-  </div>
-  <router-view/>
+  <router-view />
 </template>
 
 <style lang="scss">
-#app {
-  color: #2c3e50;
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  text-align: center;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+  @import url("https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@700&display=swap");
+  @import "~normalize.css";
 
-#nav {
-  padding: 30px;
-
-  a {
-    color: #2c3e50;
-    font-weight: bold;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+  html {
+    font-size: 62.5%;
   }
-}
+
+  html, body {
+    height: 100%;
+  }
+
+  #app {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    font-family: "Atkinson Hyperlegible", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 </style>
