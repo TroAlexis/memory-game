@@ -1,0 +1,9 @@
+@use "~@/assets/scss/_colors.scss" as *;
+@use '~@/assets/scss/utils/_functions.scss';
+
+//stylelint-disable
+:export {
+    @each $name, $color in $colors {
+        #{functions.str-replace($name, '-')}: $color,
+    }
+}

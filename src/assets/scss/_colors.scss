@@ -9,3 +9,11 @@ $secondary-500: #BCCED9;
 
 $cloud-300: #F2F2F2;
 $cloud-500: #FCFCFC;
+
+$colors: (
+    'primary': $primary,
+    'secondary-200': $secondary-200,
+    'secondary-300': $secondary-300,
+    'secondary-400': $secondary-400,
+    'cloud-500': $cloud-500,
+)
