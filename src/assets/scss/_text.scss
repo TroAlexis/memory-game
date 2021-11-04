@@ -1,3 +1,6 @@
+@use '~@/assets/scss/_colors.scss';
+
+// Sizes
 .h1 {
     font-size: 4.8rem;
 }
@@ -14,3 +17,10 @@
     font-size: 1.8rem;
 }
 
+// Colors
+
+@each $name, $color in colors.$colors {
+    .#{$name} {
+        color: $color;
+    }
+}
