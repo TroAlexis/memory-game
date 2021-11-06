@@ -15,10 +15,14 @@ import StartCard from '@/components/pages/start/StartCard.vue';
 <style lang="scss" module>
   @use "~@/assets/scss/_colors.scss";
 
+  $padding-y: 2rem;
+
   .StartPage {
     display: flex;
     flex: 1;
     flex-direction: column;
+    padding-top: $padding-y;
+    padding-bottom: $padding-y;
     background-color: colors.$secondary-100;
   }
 
