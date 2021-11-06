@@ -3,8 +3,10 @@
 </template>
 
 <style lang="scss">
+  @use "~normalize.css" as n;
+  @use "~@/assets/scss/_text.scss";
+  @use "~@/assets/scss/_ui.scss";
   @import url("https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@700&display=swap");
-  @import "~normalize.css";
 
   html {
     font-size: 62.5%;
@@ -12,6 +14,10 @@
 
   html, body {
     height: 100%;
+  }
+
+  body {
+    font-size: 1.6rem;
   }
 
   #app {
