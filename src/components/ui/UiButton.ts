@@ -25,3 +25,8 @@ export interface Theme {
     }
   }
 }
+
+export interface UiButton {
+  props?: Record<string, unknown>,
+  content: unknown,
+}
