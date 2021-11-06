@@ -1,19 +1,16 @@
-export type Color = 'primary' | 'secondary';
-export type Shade = 'dark' | 'normal' | 'light';
-export type Size = 'small' | 'medium';
+export const colors = ['primary', 'secondary'] as const;
+export const shades = ['dark', 'normal', 'light'] as const;
+export const sizes = ['small', 'medium'] as const;
 
-export type Shades = {
+type Shade = typeof shades[number];
+type Color = typeof colors[number];
+type Size = typeof sizes[number];
+
+type Shades = {
   [shade in Shade]?: string;
 } & {
   normal: string;
 };
-
-export interface Props {
-  tag?: string,
-  color?: Color,
-  shade?: Shade,
-  size?: Size,
-}
 
 export interface Theme {
   color: {

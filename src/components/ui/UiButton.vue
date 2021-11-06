@@ -7,13 +7,31 @@
 <script setup lang="ts">
 import { computed, ComputedRef } from 'vue';
 import colors from '@/assets/scss/exports/_colors-export.scss';
-import { Props, Theme } from '@/components/ui/UiButton';
+import {
+  Theme, colors as ButtonColors, shades as ButtonShades, sizes as ButtonSizes,
+} from '@/components/ui/UiButton';
+import { validatorIsOneOf } from '@/assets/js/validators';
 
-const props = withDefaults(defineProps<Props>(), {
-  tag: 'button',
-  color: 'secondary',
-  shade: 'normal',
-  size: 'small',
+const props = defineProps({
+  tag: {
+    type: String,
+    default: 'button',
+  },
+  color: {
+    type: String,
+    default: 'secondary',
+    validator: validatorIsOneOf(ButtonColors),
+  },
+  shade: {
+    type: String,
+    default: 'normal',
+    validator: validatorIsOneOf(ButtonShades),
+  },
+  size: {
+    type: String,
+    default: 'small',
+    validator: validatorIsOneOf(ButtonSizes),
+  },
 });
 
 const getComponent = ({ tag }: {tag: string}): string => tag;
