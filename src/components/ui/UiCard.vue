@@ -6,16 +6,16 @@
 
 <script setup lang="ts">
 type Size = 'none' | 'small' | 'medium';
-
+type Rounding = Size | 'xl';
 interface Props {
-  rounded?: Size,
+  rounded?: Rounding,
   padding?: Size,
   tag?: string,
 }
 
 interface Theme {
   radius: {
-    [radius in Size]: string;
+    [radius in Rounding]: string;
   },
   padding: {
     [padding in Size]: string;
@@ -33,6 +33,7 @@ const theme: Theme = {
     none: '0px',
     small: '4px',
     medium: '8px',
+    xl: '20px',
   },
   padding: {
     none: '0',
