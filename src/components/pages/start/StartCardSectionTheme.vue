@@ -3,31 +3,28 @@
     <template #heading>
       Select Theme
     </template>
-    <template #button="{ button }">
-      <UiButton v-bind="button.props" :class="$style.button">
-        {{ button.content }}
-      </UiButton>
-    </template>
   </StartCardSection>
 </template>
 
 <script setup lang="ts">
+import { useCssModule } from 'vue';
 import StartCardSection from '@/components/pages/start/StartCardSection.vue';
-import UiButton from '@/components/ui/UiButton.vue';
+import { UiButton } from '@/components/ui/UiButton';
 
-interface Btn {
-  content: string,
-  props?: Record<string, unknown>,
-}
+const $style = useCssModule();
 
-const buttons: Btn[] = [
+const buttons: UiButton[] = [
   {
     content: 'Numbers',
     props: {
       shade: 'dark',
+      class: $style.button,
     },
   }, {
     content: 'Icons',
+    props: {
+      class: $style.button,
+    },
   },
 ];
 </script>
