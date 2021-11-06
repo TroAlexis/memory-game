@@ -72,5 +72,6 @@ const theme: Theme = {
     border: 0;
     border-radius: 26px;
     cursor: pointer;
+    transition: all .3s;
   }
 </style>
