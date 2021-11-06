@@ -1,7 +1,7 @@
 <template>
-  <StartCardSection :buttons="buttons" v-model:value="theme">
+  <StartCardSection :buttons="buttons" v-model:value="gridArea">
     <template #heading>
-      Select Theme
+      Grid Size
     </template>
   </StartCardSection>
 </template>
@@ -13,18 +13,18 @@ import { addSharedClassNameForAll, UiButton } from '@/components/ui/UiButton';
 
 const $style = useCssModule();
 
-const theme: Ref<string> = ref('numbers');
+const gridArea: Ref<number> = ref(16);
 
 const buttons: UiButton[] = [
   {
-    content: 'Numbers',
-    value: 'numbers',
+    content: '4x4',
+    value: 16,
     props: {
       shade: 'dark',
     },
   }, {
-    content: 'Icons',
-    value: 'icons',
+    content: '6x6',
+    value: 36,
   },
 ];
 
