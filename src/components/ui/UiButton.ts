@@ -28,5 +28,18 @@ export interface Theme {
 
 export interface UiButton {
   props?: Record<string, unknown>,
+  value?: unknown,
   content: unknown,
+}
+
+export function addSharedProp(button: UiButton, prop: string, value: unknown): UiButton {
+  if (!button.props) {
+    button.props = {};
+  }
+  button.props[prop] = value;
+  return button;
+}
+
+export function addSharedClassNameForAll(buttons: UiButton[], className: string): UiButton[] {
+  return buttons.map((button) => addSharedProp(button, 'class', className));
 }
