@@ -9,15 +9,15 @@ type ThemeKeys = keyof typeof THEMES;
 type Theme = typeof THEMES[ThemeKeys];
 type ThemeRef = Ref<Theme>;
 
-export interface ThemeInterface {
+export interface ThemeComposable {
   theme: Readonly<ThemeRef>,
   setTheme: (newTheme: Theme) => void,
 }
 
 const theme: ThemeRef = ref(THEMES.NUMBERS);
 
-export default function useTheme(): ThemeInterface {
-  const setTheme: ThemeInterface['setTheme'] = (newTheme) => {
+export default function useTheme(): ThemeComposable {
+  const setTheme: ThemeComposable['setTheme'] = (newTheme) => {
     theme.value = newTheme;
   };
 
