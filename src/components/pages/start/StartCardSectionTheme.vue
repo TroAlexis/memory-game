@@ -1,5 +1,5 @@
 <template>
-  <StartCardSection :buttons="buttons" v-model:value="theme">
+  <StartCardSection :buttons="buttons" :value="theme" @update:value="setTheme">
     <template #heading>
       Select Theme
     </template>
@@ -7,24 +7,25 @@
 </template>
 
 <script setup lang="ts">
-import { Ref, ref, useCssModule } from 'vue';
+import { useCssModule } from 'vue';
 import StartCardSection from '@/components/pages/start/StartCardSection.vue';
 import { addSharedClassNameForAll, UiButton } from '@/components/ui/UiButton';
+import useTheme, { THEMES } from '@/composables/useTheme';
 
 const $style = useCssModule();
 
-const theme: Ref<string> = ref('numbers');
+const { theme, setTheme } = useTheme();
 
 const buttons: UiButton[] = [
   {
     content: 'Numbers',
-    value: 'numbers',
+    value: THEMES.NUMBERS,
     props: {
       shade: 'dark',
     },
   }, {
     content: 'Icons',
-    value: 'icons',
+    value: THEMES.ICONS,
   },
 ];
 
