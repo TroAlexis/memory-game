@@ -1,5 +1,5 @@
 <template>
-  <StartCardSection :buttons="buttons" v-model:value="players">
+  <StartCardSection :buttons="buttons" :value="players" @update:value="setPlayers">
     <template #heading>
       Number of Players
     </template>
@@ -8,28 +8,29 @@
 
 <script setup lang="ts">
 import {
-  Ref, ref, useCssModule,
+  useCssModule,
 } from 'vue';
 import StartCardSection from '@/components/pages/start/StartCardSection.vue';
 import { addSharedClassNameForAll, UiButton } from '@/components/ui/UiButton';
+import usePlayers, { PLAYERS } from '@/composables/usePlayers';
 
 const $style = useCssModule();
 
-const players: Ref<number> = ref(1);
+const { players, setPlayers } = usePlayers();
 
 const buttons: UiButton[] = [
   {
     content: '1',
-    value: 1,
+    value: PLAYERS.ONE,
   }, {
     content: '2',
-    value: 2,
+    value: PLAYERS.TWO,
   }, {
     content: '3',
-    value: 3,
+    value: PLAYERS.THREE,
   }, {
     content: '4',
-    value: 4,
+    value: PLAYERS.FOUR,
   },
 ];
 
