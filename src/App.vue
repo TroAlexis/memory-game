@@ -9,6 +9,12 @@
   @use "~@/assets/scss/_animations.scss";
   @import url("https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@700&display=swap");
 
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
   html {
     font-size: 62.5%;
   }
