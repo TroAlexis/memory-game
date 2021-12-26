@@ -7,6 +7,7 @@
   @use "~@/assets/scss/_text.scss";
   @use "~@/assets/scss/_ui.scss";
   @use "~@/assets/scss/_animations.scss";
+  @use "~include-media" as m;
   @import url("https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@700&display=swap");
 
   * {
@@ -17,6 +18,10 @@
 
   html {
     font-size: 62.5%;
+
+    @include m.media('<=tablet') {
+      font-size: 50%;
+    }
   }
 
   html, body {
