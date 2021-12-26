@@ -1,5 +1,5 @@
 <template>
-  <component :is="component" :class="$style.UiButton">
+  <component :is="component" v-bind="link" :class="$style.UiButton">
     <slot></slot>
   </component>
 </template>
@@ -31,6 +31,10 @@ const props = defineProps({
     type: String,
     default: 'small',
     validator: validatorIsOneOf(ButtonSizes),
+  },
+  link: {
+    type: Object,
+    default: () => ({}),
   },
 });
 
@@ -76,11 +80,13 @@ const theme: Theme = {
   @use "~include-media" as m;
 
   .UiButton {
+    display: inline-flex;
+    justify-content: center;
     padding: v-bind("theme.size.padding[props.size]") 1rem;
     color: colors.$cloud-500;
     font-size: v-bind("theme.size.font[props.size]");
 
-    @include m.media('<=tablet') {
+    @include m.media("<=tablet") {
       font-size: calc(#{v-bind("theme.size.font[props.size]")} / 1.2);
     }
 
