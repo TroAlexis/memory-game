@@ -38,6 +38,7 @@ addSharedClassNameForAll(buttons, $style.button);
 </script>
 
 <style lang="scss" module>
+  @use "~include-media" as m;
   .StartCardSectionTheme {
     //
   }
@@ -46,6 +47,10 @@ addSharedClassNameForAll(buttons, $style.button);
     flex-basis: 25%;
     & + & {
       margin-left: 2.1rem;
+
+      @include m.media('<=tablet') {
+        margin-left: 1.3rem;
+      }
     }
   }
 </style>

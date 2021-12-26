@@ -73,11 +73,17 @@ const theme: Theme = {
 
 <style lang="scss" module>
   @use '~@/assets/scss/_colors.scss';
+  @use "~include-media" as m;
 
   .UiButton {
     padding: v-bind("theme.size.padding[props.size]") 1rem;
     color: colors.$cloud-500;
     font-size: v-bind("theme.size.font[props.size]");
+
+    @include m.media('<=tablet') {
+      font-size: calc(#{v-bind("theme.size.font[props.size]")} / 1.2);
+    }
+
     background-color: v-bind("theme.color[props.color][props.shade].normal");
     &:hover {
       background-color: v-bind("theme.color[props.color][props.shade].hover");

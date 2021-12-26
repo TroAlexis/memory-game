@@ -44,8 +44,13 @@ const theme: Theme = {
 </script>
 
 <style lang="scss" module>
+  @use "~include-media" as m;
   .UiBox {
     padding: v-bind('theme.padding[props.padding]');
     border-radius: v-bind('theme.radius[props.rounded]');
+
+    @include m.media('<=tablet') {
+      padding: calc(#{v-bind('theme.padding[props.padding]')} / 2);
+    }
   }
 </style>
