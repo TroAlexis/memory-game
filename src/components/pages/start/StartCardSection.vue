@@ -47,6 +47,7 @@ const getButtonShade = (value: unknown) => (value === props.value ? 'dark' : und
   }
 
   .heading {
+    margin-top: 0;
     margin-bottom: 1.6rem;
   }
 

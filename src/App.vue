@@ -6,6 +6,7 @@
   @use "~normalize.css" as n;
   @use "~@/assets/scss/_text.scss";
   @use "~@/assets/scss/_ui.scss";
+  @use "~@/assets/scss/_animations.scss";
   @import url("https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@700&display=swap");
 
   html {

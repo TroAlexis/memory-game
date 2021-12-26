@@ -1,16 +1,18 @@
 <template>
-  <span :class="$style.Logo">
+  <span :class="[$style.Logo, animated && 'slide-in-elliptic-left-fwd']">
     memory
   </span>
 </template>
 
 <script setup lang="ts">
 import colors from '@/assets/scss/exports/_colors-export.scss';
+import useAnimatedOnMount from '@/composables/useAnimatedOnMount';
 
 type Color = 'light' | 'dark';
 
 interface Props {
   color?: Color,
+  animateEntrance?: boolean,
 }
 
 type Theme = {
@@ -19,12 +21,15 @@ type Theme = {
 
 const props = withDefaults(defineProps<Props>(), {
   color: 'light',
+  animateEntrance: true,
 });
 
 const theme: Theme = {
   light: colors.cloud500,
   dark: colors.secondary100,
 };
+
+const { animated } = useAnimatedOnMount(props.animateEntrance);
 </script>
 
 <style lang="scss" module>
