@@ -1,5 +1,7 @@
+@use 'sass:color';
 // Colors
 $primary: #FDA214;
+$primary-300: color.adjust($primary, $whiteness: 20%);
 
 $secondary-100: #152938;
 $secondary-200: #304859;
@@ -12,6 +14,8 @@ $cloud-500: #FCFCFC;
 
 $colors: (
     'primary': $primary,
+    'primary-300': $primary-300,
+    'secondary-100': $secondary-100,
     'secondary-200': $secondary-200,
     'secondary-300': $secondary-300,
     'secondary-400': $secondary-400,

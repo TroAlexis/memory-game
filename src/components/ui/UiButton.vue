@@ -42,11 +42,20 @@ const component: ComputedRef = computed(() => getComponent({
 const theme: Theme = {
   color: {
     primary: {
-      normal: colors.primary,
+      normal: {
+        normal: colors.primary,
+        hover: colors.primary300,
+      },
     },
     secondary: {
-      dark: colors.secondary200,
-      normal: colors.secondary300,
+      dark: {
+        normal: colors.secondary200,
+        hover: colors.secondary100,
+      },
+      normal: {
+        normal: colors.secondary300,
+        hover: colors.secondary400,
+      },
     },
   },
   size: {
@@ -64,11 +73,18 @@ const theme: Theme = {
 
 <style lang="scss" module>
   @use '~@/assets/scss/_colors.scss';
+
   .UiButton {
     padding: v-bind("theme.size.padding[props.size]") 1rem;
     color: colors.$cloud-500;
     font-size: v-bind("theme.size.font[props.size]");
-    background-color: v-bind("theme.color[props.color][props.shade]");
+    background-color: v-bind("theme.color[props.color][props.shade].normal");
+    &:hover {
+      background-color: v-bind("theme.color[props.color][props.shade].hover");
+    }
+    &:active {
+      transform: scale3d(.98, .98, 1);
+    }
     border: 0;
     border-radius: 26px;
     cursor: pointer;
