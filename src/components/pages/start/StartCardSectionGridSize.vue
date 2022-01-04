@@ -7,7 +7,7 @@
 </template>
 
 <script setup lang="ts">
-import { Ref, ref, useCssModule } from 'vue';
+import { useCssModule } from 'vue';
 import StartCardSection from '@/components/pages/start/StartCardSection.vue';
 import { addSharedClassNameForAll, UiButton } from '@/components/ui/UiButton';
 import useGrid, { GRIDS } from '@/composables/useGrid';
