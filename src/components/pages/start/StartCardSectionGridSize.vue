@@ -1,5 +1,5 @@
 <template>
-  <StartCardSection :buttons="buttons" v-model:value="gridArea">
+  <StartCardSection :buttons="buttons" :value="grid" @update:value="setGrid">
     <template #heading>
       Grid Size
     </template>
@@ -10,21 +10,22 @@
 import { Ref, ref, useCssModule } from 'vue';
 import StartCardSection from '@/components/pages/start/StartCardSection.vue';
 import { addSharedClassNameForAll, UiButton } from '@/components/ui/UiButton';
+import useGrid, { GRIDS } from '@/composables/useGrid';
 
 const $style = useCssModule();
 
-const gridArea: Ref<number> = ref(16);
+const { grid, setGrid } = useGrid();
 
 const buttons: UiButton[] = [
   {
     content: '4x4',
-    value: 16,
+    value: GRIDS.SIXTEEN,
     props: {
       shade: 'dark',
     },
   }, {
     content: '6x6',
-    value: 36,
+    value: GRIDS.THIRTY_SIX,
   },
 ];
 
