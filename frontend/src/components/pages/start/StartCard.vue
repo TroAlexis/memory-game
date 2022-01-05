@@ -20,7 +20,7 @@ import StartCardSectionPlayers from '@/components/pages/start/StartCardSectionPl
 import StartCardSectionGridSize from '@/components/pages/start/StartCardSectionGridSize.vue';
 import UiButton from '@/components/ui/UiButton.vue';
 import useAnimatedOnMount from '@/composables/useAnimatedOnMount';
-import api from '@/assets/js/api/index';
+import api from '@/assets/js/api';
 
 const router = useRouter();
 
