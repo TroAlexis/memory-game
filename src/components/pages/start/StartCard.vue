@@ -5,7 +5,7 @@
     <StartCardSectionGridSize :class="[$style.section]" />
     <UiButton
       color="primary" size="medium" :class="$style.button"
-      tag="router-link" :link="{to: '/game'}"
+      @click="startGame"
     >
       Start Game
     </UiButton>
@@ -13,14 +13,29 @@
 </template>
 
 <script setup>
+import { useRouter } from 'vue-router';
 import UiCard from '@/components/ui/UiCard.vue';
 import StartCardSectionTheme from '@/components/pages/start/StartCardSectionTheme.vue';
 import StartCardSectionPlayers from '@/components/pages/start/StartCardSectionPlayers.vue';
 import StartCardSectionGridSize from '@/components/pages/start/StartCardSectionGridSize.vue';
 import UiButton from '@/components/ui/UiButton.vue';
 import useAnimatedOnMount from '@/composables/useAnimatedOnMount';
+import api from '@/assets/js/api/index';
+
+const router = useRouter();
 
 const { animated } = useAnimatedOnMount();
+
+const startGame = async () => {
+  const { id } = await api.startGame();
+
+  await router.push({
+    name: 'game',
+    query: {
+      id,
+    },
+  });
+};
 </script>
 
 <style lang="scss" module>
