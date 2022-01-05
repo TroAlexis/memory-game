@@ -6,7 +6,10 @@
     "precommit:backend": "cd backend && npm run precommit",
     "precommit:frontend": "cd frontend && npm run precommit",
     "precommit": "npm-run-all precommit:*",
-    "prepare": "husky install"
+    "install:husky": "husky install",
+    "install:backend": "cd backend && npm install",
+    "install:frontend": "cd frontend && npm install",
+    "prepare": "npm-run-all install:*"
   },
   "repository": {
     "type": "git",
